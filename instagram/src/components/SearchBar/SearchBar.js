@@ -7,9 +7,9 @@ import IconTabs from './IconTabs';
 
 const SearchBar = props => {
   return (
-    <div className='top-container'>
+    <div className={props.isTop ? 'top-container' : 'top-scroll top-container'}>
       <div className='search-bar-container'>
-        <Logo />
+        <Logo isTop={props.isTop} />
         <Search
           searchInput={props.searchInput}
           searchInputChange={props.searchInputChange}
@@ -22,7 +22,8 @@ const SearchBar = props => {
 
 SearchBar.propTypes = {
   searchInput: PropTypes.string,
-  searchInputChange: PropTypes.func
+  searchInputChange: PropTypes.func,
+  isTop: PropTypes.bool
 };
 
 export default SearchBar;

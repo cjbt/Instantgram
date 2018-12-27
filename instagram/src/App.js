@@ -13,17 +13,34 @@ class App extends Component {
       dataList: [],
       searchInput: '',
       username: 'cj',
-      text: ''
+      text: '',
+      isTop: true,
+      comments: []
     };
   }
 
   componentDidMount() {
+    const commentArr = [];
+    dummyData.map(data => commentArr.push(data.comments));
+
     setTimeout(() => {
       this.setState({
-        dataList: dummyData
+        dataList: dummyData,
+        comments: commentArr
       });
     }, 0);
+
+    document.addEventListener('scroll', this.scrollChange);
   }
+
+  scrollChange = () => {
+    const isTop = window.scrollY < 55;
+    if (isTop !== this.state.isTop) {
+      this.setState({
+        isTop
+      });
+    }
+  };
 
   searchInputChange = e => {
     this.setState({
@@ -39,43 +56,13 @@ class App extends Component {
 
   addNewComment = (e, i) => {
     e.preventDefault();
+    const newArr = this.state.comments;
+    newArr[i].push({ username: this.state.username, text: this.state.text });
 
-    console.log(e.target.key);
-
-    const newArr = [];
-    this.state.dataList.map((item, i) => newArr.push(item.comments));
-
-    newArr[0].push({ username: 'hamza', text: 'idk' });
-
-    // console.log(newArr);
-    // this.setState({
-    //   dataList: [
-    //     ...this.state.dataList,
-    //     { comments: [{ username: this.state.username, text: this.state.text }] }
-    //   ],
-    //   text: ''
-    // });
-
-    // const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-    // const targetUrl = 'http://71.65.239.221:5000/addComment';
-    // e.preventDefault();
-
-    // fetch(proxyUrl + targetUrl, {
-    //   method: 'POST',
-    //   headers: {
-    //     Accept: 'application/json',
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(this.state)
-    // })
-    //   .then(res => res.json())
-    //   .then(data =>
-    //     this.setState({
-    //       username: data.username,
-    //       text: data.text
-    //     })
-    //   );
-    // console.log(this.state.data, this.state.commentValue);
+    this.setState({
+      comments: newArr,
+      text: ''
+    });
   }; // commentSubmit()
 
   render() {
@@ -90,6 +77,7 @@ class App extends Component {
             <SearchBar
               searchInput={this.state.searchInput}
               searchInputChange={this.searchInputChange}
+              isTop={this.state.isTop}
             />
             <div className='bottom-content'>
               <div className='postouter'>
@@ -103,15 +91,15 @@ class App extends Component {
                         likes={post.likes}
                         timestamp={post.timestamp}
                         key={i}
-                        comments={post.comments}
+                        comments={this.state.comments[i]}
                         commentValueChange={this.commentValueChange}
                         text={this.state.text}
-                        addNewComment={i => this.addNewComment(i)}
+                        addNewComment={e => this.addNewComment(e, i)}
                       />
                     ))}
               </div>
 
-              <Footer />
+              <Footer isTop={this.state.isTop} />
             </div>
           </div>
         )}

@@ -1,6 +1,7 @@
 import React from 'react';
 import instaLogo from './instagram.svg';
 import instatext from './instatext.png';
+import PropTypes from 'prop-types';
 
 const Logo = props => {
   return (
@@ -8,11 +9,15 @@ const Logo = props => {
       <div className='logos'>
         <img className='insta-logo' src={instaLogo} alt='' />
       </div>
-      <div className='logo-name'>
+      <div className={props.isTop ? 'logo-name' : 'hidden logo-name'}>
         <img className='insta-text' src={instatext} alt='' />
       </div>
     </div>
   );
+};
+
+Logo.propTypes = {
+  isTop: PropTypes.bool
 };
 
 export default Logo;
