@@ -1,10 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Suggestions = props => {
-  return <div className='suggestions' />;
+const Suggestions = () => {
+  return (
+    <div className='footer-box suggestions-container'>
+      <div className='box-left'>Suggestions For You</div>
+      <div className='box-right'>See All</div>
+    </div>
+  );
 };
-
-Suggestions.propTypes = {};
 
 export default Suggestions;

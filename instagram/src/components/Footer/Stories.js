@@ -1,10 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Stories = props => {
-  return <div className='stories' />;
+const Stories = () => {
+  return (
+    <div className='footer-box stories-container'>
+      <div className='box-left'>Stories</div>
+      <div className='box-right'>Watch All</div>
+    </div>
+  );
 };
-
-Stories.propTypes = {};
 
 export default Stories;

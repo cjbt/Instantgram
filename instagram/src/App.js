@@ -12,10 +12,13 @@ class App extends Component {
     this.state = {
       dataList: [],
       searchInput: '',
-      username: 'cj',
+      username: 'cjbt',
       text: '',
       isTop: true,
-      comments: []
+      comments: [],
+      firstName: 'cj',
+      lastName: 'tantay',
+      profile: null
     };
   }
 
@@ -99,7 +102,12 @@ class App extends Component {
                     ))}
               </div>
 
-              <Footer isTop={this.state.isTop} />
+              <Footer
+                isTop={this.state.isTop}
+                username={this.state.username}
+                firstName={this.state.firstName}
+                lastName={this.state.lastName}
+              />
             </div>
           </div>
         )}

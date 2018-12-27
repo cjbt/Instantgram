@@ -12,16 +12,57 @@
 
   .user-profile {
     height: 67px;
+    display: flex;
+    flex-direction: row;
+
+    .profile-pic {
+      width: 50px;
+      border-radius: 50%;
+      margin-left: 4px;
+      border: 0.5px solid lightgray;
+    }
+    .main-user {
+      padding-left: 14px;
+      padding-top: 9px;
+
+      .main-alias {
+        font-weight: 600;
+        font-size: 1.4rem;
+      }
+      .main-full {
+        color: #999999;
+        padding-top: 5px;
+        font-size: 1.3rem;
+      }
+    }
   }
 
-  .stories {
+  .stories-container {
     width: 292px;
     background: white;
     border: 1px solid #e6e6e6;
     height: 222px;
   }
 
-  .suggestions {
+  .footer-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px 16px 0 16px;
+    overflow: hidden;
+  }
+
+  .box-left {
+    color: #999999;
+    font-size: 1.5rem;
+  }
+
+  .box-right {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .suggestions-container {
     width: 292px;
     background: white;
     border: 1px solid #e6e6e6;
@@ -30,6 +71,20 @@
   }
 
   .bottom-links {
+    color: #c7c7c7;
+    padding-top: 18px;
+    .links {
+      line-height: 1.3rem;
+      span {
+        font-size: 1.125rem;
+      }
+      .link-anchor {
+        cursor: pointer;
+      }
+    }
+    .copyright {
+      padding-top: 25px;
+    }
   }
 }
 

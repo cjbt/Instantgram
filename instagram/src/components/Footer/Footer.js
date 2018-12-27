@@ -10,7 +10,11 @@ const Footer = props => {
   return (
     <div className={props.isTop ? 'footer' : 'footer footer-fixed'}>
       <div className='footerchild'>
-        <UserProfile />
+        <UserProfile
+          username={props.username}
+          firstName={props.firstName}
+          lastName={props.lastName}
+        />
         <Stories />
         <Suggestions />
         <BottomLinks />
@@ -20,7 +24,10 @@ const Footer = props => {
 };
 
 Footer.propTypes = {
-  isTop: PropTypes.bool
+  isTop: PropTypes.bool,
+  username: PropTypes.string,
+  firstName: PropTypes.string,
+  lastName: PropTypes.string
 };
 
 export default Footer;
