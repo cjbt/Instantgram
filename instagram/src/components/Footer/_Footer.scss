@@ -1,4 +1,37 @@
 .footer {
-  width: 292px;
-  background: white;
+  // width: 292px;
+  // background: white;
+  // border: 1px solid #e6e6e6;
+  position: fixed;
+  // border: 1px solid red;
+  margin: 0 auto;
+  max-width: 935px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  .footerChild {
+  }
+
+  .user-profile {
+    height: 67px;
+  }
+
+  .stories {
+    width: 292px;
+    background: white;
+    border: 1px solid #e6e6e6;
+    height: 222px;
+  }
+
+  .suggestions {
+    width: 292px;
+    background: white;
+    border: 1px solid #e6e6e6;
+    height: 203px;
+    margin-top: 12px;
+  }
+
+  .bottom-links {
+  }
 }
