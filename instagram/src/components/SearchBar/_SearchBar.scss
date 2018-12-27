@@ -1,0 +1,72 @@
+.top-container {
+  border-bottom: 1px solid #e6e6e6;
+  background: white;
+  padding-top: 25px;
+  padding-bottom: 23px;
+  z-index: 999;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+
+  .search-bar-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    // @include flex(space-between, center, row);
+    max-width: 970px;
+    margin: 0 auto;
+
+    form {
+      padding-right: 0;
+      .search {
+        text-align: center;
+        width: 217px;
+        height: 28px;
+        border-radius: 3px;
+        border: 1px solid #dbdbdb;
+        background: #fafafa;
+        font-size: 1.4rem;
+        margin-right: 35px;
+
+        ::placeholder {
+          color: #999999;
+        }
+      }
+    }
+
+    .logo-container {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+
+      .logos {
+        border-right: 1px solid #262626;
+
+        .insta-logo {
+          width: 25px;
+          margin-right: 15px;
+        }
+      }
+
+      .logo-name {
+        .insta-text {
+          width: 115px;
+          margin-left: 13px;
+        }
+      }
+    }
+
+    .icon-container {
+      display: flex;
+      flex-direction: row;
+      width: 135px;
+      justify-content: space-between;
+
+      .logo {
+        width: 25px;
+      }
+    }
+  }
+}
