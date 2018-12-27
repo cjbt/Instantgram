@@ -18,7 +18,7 @@ const CommentSection = props => {
       </div>
       <div className='timestamp'>{props.timestamp}</div>
       <div className='add-comment'>
-        <form onSubmit={props.commentSubmit}>
+        <form onSubmit={props.addNewComment}>
           <input
             className='comment-input'
             type='text'
@@ -44,7 +44,7 @@ CommentSection.propTypes = {
     })
   ),
   timestamp: PropTypes.string,
-  commentSubmit: PropTypes.func,
+  addNewComment: PropTypes.func,
   text: PropTypes.string
 };
 

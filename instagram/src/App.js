@@ -18,17 +18,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-    // const targetUrl = 'http://71.65.239.221:5000/addComment';
-    // fetch(proxyUrl + targetUrl)
-    //   .then(res => res.json())
-    //   .then(data => this.setState({ data }));
-
     setTimeout(() => {
       this.setState({
         dataList: dummyData
       });
-    }, 3000);
+    }, 0);
   }
 
   searchInputChange = e => {
@@ -41,18 +35,26 @@ class App extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    //console.log(this.state.commentValue);
   };
 
-  commentSubmit = e => {
+  addNewComment = (e, i) => {
     e.preventDefault();
-    this.setState({
-      dataList: [
-        ...this.state.dataList,
-        { comment: [{ username: this.state.username, text: this.state.text }] }
-      ],
-      text: ''
-    });
+
+    console.log(e.target.key);
+
+    const newArr = [];
+    this.state.dataList.map((item, i) => newArr.push(item.comments));
+
+    newArr[0].push({ username: 'hamza', text: 'idk' });
+
+    // console.log(newArr);
+    // this.setState({
+    //   dataList: [
+    //     ...this.state.dataList,
+    //     { comments: [{ username: this.state.username, text: this.state.text }] }
+    //   ],
+    //   text: ''
+    // });
 
     // const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
     // const targetUrl = 'http://71.65.239.221:5000/addComment';
@@ -74,7 +76,7 @@ class App extends Component {
     //     })
     //   );
     // console.log(this.state.data, this.state.commentValue);
-  };
+  }; // commentSubmit()
 
   render() {
     return (
@@ -91,20 +93,22 @@ class App extends Component {
             />
             <div className='bottom-content'>
               <div className='postouter'>
-                {this.state.dataList.map(post => (
-                  <PostContainer
-                    thumbnail={post.thumbnailUrl}
-                    username={post.username}
-                    img={post.imageUrl}
-                    likes={post.likes}
-                    timestamp={post.timestamp}
-                    key={post.timestamp}
-                    comments={post.comments}
-                    commentValueChange={this.commentValueChange}
-                    commentSubmit={this.commentSubmit}
-                    text={this.state.text}
-                  />
-                ))}
+                {!this.state.dataList
+                  ? ''
+                  : this.state.dataList.map((post, i) => (
+                      <PostContainer
+                        thumbnail={post.thumbnailUrl}
+                        username={post.username}
+                        img={post.imageUrl}
+                        likes={post.likes}
+                        timestamp={post.timestamp}
+                        key={i}
+                        comments={post.comments}
+                        commentValueChange={this.commentValueChange}
+                        text={this.state.text}
+                        addNewComment={i => this.addNewComment(i)}
+                      />
+                    ))}
               </div>
 
               <Footer />
