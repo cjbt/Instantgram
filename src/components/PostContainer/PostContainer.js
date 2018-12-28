@@ -9,7 +9,14 @@ const PostContainer = props => {
   return (
     <div className='post-container'>
       <User thumbnail={props.thumbnail} username={props.username} />
-      <MiddleContentImg img={props.img} likes={props.likes} />
+      <MiddleContentImg
+        img={props.img}
+        likes={props.likes}
+        isLiked={props.isLiked}
+        heartClick={props.heartClick}
+        index={props.index}
+        likedCounter={props.likedCounter}
+      />
       <CommentSection
         comments={props.comments}
         timestamp={props.timestamp}
@@ -34,7 +41,11 @@ PostContainer.propTypes = {
   ),
   timestamp: PropTypes.string,
   commentValueChange: PropTypes.func,
-  addNewComment: PropTypes.func
+  addNewComment: PropTypes.func,
+  isLiked: PropTypes.array,
+  heartClick: PropTypes.func,
+  likedCounter: PropTypes.array,
+  likedCounterChange: PropTypes.func
 };
 
 export default PostContainer;

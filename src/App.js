@@ -18,18 +18,23 @@ class App extends Component {
       comments: [],
       firstName: 'cj',
       lastName: 'tantay',
-      profile: null
+      profile: null,
+      isLiked: [],
+      likedCounter: []
     };
   }
 
   componentDidMount() {
-    const commentArr = [];
-    dummyData.map(data => commentArr.push(data.comments));
+    const commentArr = dummyData.map(data => data.comments);
+    const isLiked = dummyData.map(data => false);
+    const likedCounter = dummyData.map(data => data.likes);
 
     setTimeout(() => {
       this.setState({
         dataList: dummyData,
-        comments: commentArr
+        comments: commentArr,
+        isLiked: isLiked,
+        likedCounter: likedCounter
       });
     }, 0);
 
@@ -68,6 +73,35 @@ class App extends Component {
     });
   }; // commentSubmit()
 
+  heartClick = e => {
+    const indexClicked = parseInt(e.target.name);
+    const isLiked = this.state.isLiked.map((like, i) => {
+      if (i === indexClicked) {
+        return like ? false : true;
+      } else {
+        return like;
+      }
+    });
+    this.setState({
+      isLiked: isLiked
+    });
+
+    this.likedCounterChange(indexClicked);
+  };
+
+  likedCounterChange = indexClicked => {
+    const likedCounter = this.state.likedCounter.map((item, i) => {
+      if (i === indexClicked) {
+        return this.state.isLiked[indexClicked] ? (item -= 1) : (item += 1);
+      } else {
+        return item;
+      }
+    });
+    this.setState({
+      likedCounter: likedCounter
+    });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -94,10 +128,14 @@ class App extends Component {
                         likes={post.likes}
                         timestamp={post.timestamp}
                         key={i}
+                        index={i}
                         comments={this.state.comments[i]}
                         commentValueChange={this.commentValueChange}
                         text={this.state.text}
                         addNewComment={e => this.addNewComment(e, i)}
+                        isLiked={this.state.isLiked}
+                        heartClick={this.heartClick}
+                        likedCounter={this.state.likedCounter}
                       />
                     ))}
               </div>

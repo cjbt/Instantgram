@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import commentIcon from './comment-regular.svg';
 import heartIcon from './heart-regular.svg';
 import bookmark from './bookmark-regular.svg';
+import redheart from './heart-red.svg';
 
 const MiddleContentImg = props => {
   return (
@@ -10,7 +11,13 @@ const MiddleContentImg = props => {
       <img src={props.img} alt='' />
       <div className='post-icons'>
         <div className='icon-left'>
-          <img className='heart' src={heartIcon} alt='' />
+          <img
+            className='heart'
+            src={props.isLiked[props.index] ? redheart : heartIcon}
+            alt=''
+            onClick={props.heartClick}
+            name={props.index}
+          />
           <img className='comment' src={commentIcon} alt='' />
         </div>
 
@@ -18,14 +25,16 @@ const MiddleContentImg = props => {
           <img className='bookmark' src={bookmark} alt='' />
         </div>
       </div>
-      <div className='likes'>{props.likes} likes</div>
+      <div className='likes'>{props.likedCounter[props.index]} likes</div>
     </div>
   );
 };
 
 MiddleContentImg.propTypes = {
   img: PropTypes.string,
-  likes: PropTypes.number
+  isLiked: PropTypes.array,
+  heartClick: PropTypes.func,
+  likedCounter: PropTypes.array
 };
 
 export default MiddleContentImg;
