@@ -7,7 +7,7 @@ import MiddleContentImg from './MiddleContentImg';
 
 const PostContainer = props => {
   return (
-    <div className='post-container'>
+    <div className={props.isTop ? 'width614 post-container' : 'post-container'}>
       <User thumbnail={props.thumbnail} username={props.username} />
       <MiddleContentImg
         img={props.img}
@@ -45,7 +45,8 @@ PostContainer.propTypes = {
   isLiked: PropTypes.array,
   heartClick: PropTypes.func,
   likedCounter: PropTypes.array,
-  likedCounterChange: PropTypes.func
+  likedCounterChange: PropTypes.func,
+  isTop: PropTypes.bool
 };
 
 export default PostContainer;

@@ -136,6 +136,7 @@ class App extends Component {
                         isLiked={this.state.isLiked}
                         heartClick={this.heartClick}
                         likedCounter={this.state.likedCounter}
+                        isTop={this.state.isTop}
                       />
                     ))}
               </div>

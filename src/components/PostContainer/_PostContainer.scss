@@ -1,10 +1,10 @@
 .post-container {
   max-width: 614px;
-  width: 614px;
   border: 1px solid #e6e6e6;
   border-radius: 3px;
   background: white;
   margin-bottom: 60px;
+  width: 100%;
 
   .user-content {
     display: flex;
@@ -67,4 +67,8 @@
       font-weight: 600;
     }
   }
+}
+
+.width614 {
+  width: 614px;
 }
