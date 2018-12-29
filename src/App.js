@@ -23,6 +23,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log(window.localStorage);
     const commentArr = dummyData.map(data => data.comments);
     const isLiked = dummyData.map(data => false);
     const likedCounter = dummyData.map(data => data.likes);
@@ -124,6 +125,7 @@ class App extends Component {
             firstName={this.state.firstName}
             lastName={this.state.lastName}
             profile={this.state.profile}
+            logout={this.props.logout}
           />
         )}
       </React.Fragment>

@@ -5,11 +5,25 @@ const UserProfile = props => {
   return (
     <div className='user-profile'>
       <div>
-        <img className='profile-pic' src={props.profile} alt='' />
+        <a
+          href={`http://instagram.com/${props.username}`}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <img className='profile-pic' src={props.profile} alt='' />
+        </a>
       </div>
 
       <div className='main-user'>
-        <div className='main-alias'>{props.username}</div>
+        <div className='main-alias'>
+          <a
+            href={`http://instagram.com/${props.username}`}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            {props.username}
+          </a>
+        </div>
         <div className='main-full'>{`${props.firstName}`}</div>
       </div>
     </div>

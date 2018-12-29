@@ -20,10 +20,14 @@ const Authenticate = App =>
         });
       }
     }
+
+    logout = e => {
+      return this.state.loginVerfied ? localStorage.clear() : null;
+    };
     render() {
       return (
         <React.Fragment>
-          {this.state.loginVerfied ? <App /> : <Login />}
+          {this.state.loginVerfied ? <App logout={this.logout} /> : <Login />}
         </React.Fragment>
       );
     }

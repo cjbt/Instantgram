@@ -15,7 +15,7 @@ const Footer = props => {
           firstName={props.firstName}
           lastName={props.lastName}
         />
-        <Stories />
+        <Stories logout={props.logout} />
         <Suggestions />
         <BottomLinks />
       </div>
@@ -27,7 +27,8 @@ Footer.propTypes = {
   isTop: PropTypes.bool,
   username: PropTypes.string,
   firstName: PropTypes.string,
-  lastName: PropTypes.string
+  lastName: PropTypes.string,
+  logout: PropTypes.func
 };
 
 export default Footer;

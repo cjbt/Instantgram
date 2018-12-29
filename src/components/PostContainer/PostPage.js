@@ -39,6 +39,7 @@ const PostPage = props => {
           </div>
 
           <Footer
+            logout={props.logout}
             isTop={props.isTop}
             username={props.username}
             firstName={props.firstName}
@@ -76,7 +77,8 @@ PostPage.propTypes = {
   username: PropTypes.string,
   firstName: PropTypes.string,
   lastName: PropTypes.string,
-  profile: PropTypes.string
+  profile: PropTypes.string,
+  logout: PropTypes.func
 };
 
 export default PostPage;
