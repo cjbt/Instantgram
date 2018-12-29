@@ -109,3 +109,11 @@
 .padding-right {
   margin-right: 156px;
 }
+
+#search {
+  background-image: url('/search-solid.svg');
+  background-repeat: no-repeat;
+  // text-indent: 20px;
+  background-size: 6%;
+  background-position: 68px 7px;
+}

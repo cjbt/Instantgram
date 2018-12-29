@@ -8,8 +8,9 @@ const Search = props => {
         className='search'
         type='text'
         value={props.searchInput}
-        placeholder='&#xF002; Search'
+        placeholder={'Search'}
         onChange={e => props.searchInputChange(e)}
+        id={'search'}
       />
     </form>
   );
