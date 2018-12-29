@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import './components/style/App.scss';
 import dummyData from './dummy-data';
-import SearchBar from './components/SearchBar/SearchBar';
-import PostContainer from './components/PostContainer/PostContainer';
-import Footer from './components/Footer/Footer';
-import insta from './instagram.svg';
+
+import PostPage from './components/PostContainer/PostPage';
 
 class App extends Component {
   constructor(props) {
@@ -105,51 +103,23 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.state.dataList.length === 0 ? (
-          <div className='loading'>
-            <img className='loading-insta' src={insta} alt='' />
-          </div>
-        ) : (
-          <div className='App'>
-            <SearchBar
-              searchInput={this.state.searchInput}
-              searchInputChange={this.searchInputChange}
-              isTop={this.state.isTop}
-            />
-            <div className='bottom-content'>
-              <div className='postouter'>
-                {!this.state.dataList
-                  ? ''
-                  : this.state.dataList.map((post, i) => (
-                      <PostContainer
-                        thumbnail={post.thumbnailUrl}
-                        username={post.username}
-                        img={post.imageUrl}
-                        likes={post.likes}
-                        timestamp={post.timestamp}
-                        key={i}
-                        index={i}
-                        comments={this.state.comments[i]}
-                        commentValueChange={this.commentValueChange}
-                        text={this.state.text}
-                        addNewComment={e => this.addNewComment(e, i)}
-                        isLiked={this.state.isLiked}
-                        heartClick={this.heartClick}
-                        likedCounter={this.state.likedCounter}
-                        isTop={this.state.isTop}
-                      />
-                    ))}
-              </div>
-
-              <Footer
-                isTop={this.state.isTop}
-                username={this.state.username}
-                firstName={this.state.firstName}
-                lastName={this.state.lastName}
-              />
-            </div>
-          </div>
-        )}
+        <PostPage
+          searchInput={this.state.searchInput}
+          searchInputChange={this.searchInputChange}
+          isTop={this.state.isTop}
+          dataList={this.state.dataList}
+          comments={this.state.comments}
+          commentValueChange={this.commentValueChange}
+          text={this.state.text}
+          addNewComment={this.addNewComment}
+          isLiked={this.state.isLiked}
+          heartClick={this.heartClick}
+          likedCounter={this.state.likedCounter}
+          username={this.state.username}
+          firstName={this.state.firstName}
+          lastName={this.state.lastName}
+          profile={this.state.profile}
+        />
       </React.Fragment>
     );
   }

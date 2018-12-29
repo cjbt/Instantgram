@@ -1,24 +1,29 @@
 import React from 'react';
+import SearchBar from '../SearchBar/SearchBar';
+import PostContainer from './PostContainer';
+import Footer from '../Footer/Footer';
+import insta from '../../instagram.svg';
+import PropTypes from 'prop-types';
 
-const PostPage = () => {
+const PostPage = props => {
   return (
     <React.Fragment>
-      {this.state.dataList.length === 0 ? (
+      {props.dataList.length === 0 ? (
         <div className='loading'>
           <img className='loading-insta' src={insta} alt='' />
         </div>
       ) : (
         <div className='App'>
           <SearchBar
-            searchInput={this.state.searchInput}
-            searchInputChange={this.searchInputChange}
-            isTop={this.state.isTop}
+            searchInput={props.searchInput}
+            searchInputChange={props.searchInputChange}
+            isTop={props.isTop}
           />
           <div className='bottom-content'>
             <div className='postouter'>
-              {!this.state.dataList
+              {!props.dataList
                 ? ''
-                : this.state.dataList.map((post, i) => (
+                : props.dataList.map((post, i) => (
                     <PostContainer
                       thumbnail={post.thumbnailUrl}
                       username={post.username}
@@ -27,29 +32,47 @@ const PostPage = () => {
                       timestamp={post.timestamp}
                       key={i}
                       index={i}
-                      comments={this.state.comments[i]}
-                      commentValueChange={this.commentValueChange}
-                      text={this.state.text}
-                      addNewComment={e => this.addNewComment(e, i)}
-                      isLiked={this.state.isLiked}
-                      heartClick={this.heartClick}
-                      likedCounter={this.state.likedCounter}
-                      isTop={this.state.isTop}
+                      comments={props.comments[i]}
+                      commentValueChange={props.commentValueChange}
+                      text={props.text}
+                      addNewComment={e => props.addNewComment(e, i)}
+                      isLiked={props.isLiked}
+                      heartClick={props.heartClick}
+                      likedCounter={props.likedCounter}
+                      isTop={props.isTop}
                     />
                   ))}
             </div>
 
             <Footer
-              isTop={this.state.isTop}
-              username={this.state.username}
-              firstName={this.state.firstName}
-              lastName={this.state.lastName}
+              isTop={props.isTop}
+              username={props.username}
+              firstName={props.firstName}
+              lastName={props.lastName}
             />
           </div>
         </div>
       )}
     </React.Fragment>
   );
+};
+
+PostPage.PropTypes = {
+  searchInput: PropTypes.string,
+  searchInputChange: PropTypes.func,
+  isTop: PropTypes.bool,
+  // dataList: PropTypes.arrayOf(shape()),
+  comments: PropTypes.array,
+  commentValueChange: PropTypes.func,
+  text: PropTypes.text,
+  addNewComment: PropTypes.func,
+  isLiked: PropTypes.array,
+  heartClick: PropTypes.func,
+  likedCounter: PropTypes.array,
+  username: PropTypes.string,
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  profile: PropTypes.string
 };
 
 export default PostPage;
