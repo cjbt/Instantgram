@@ -10,9 +10,7 @@ const UserProfile = props => {
 
       <div className='main-user'>
         <div className='main-alias'>{props.username}</div>
-        <div className='main-full'>{`${props.firstName} ${
-          props.lastName
-        }`}</div>
+        <div className='main-full'>{`${props.firstName}`}</div>
       </div>
     </div>
   );

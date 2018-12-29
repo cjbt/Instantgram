@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './components/style/App.scss';
 import dummyData from './dummy-data';
-
+import Authenticate from './components/Authentication/Authenticate';
 import PostPage from './components/PostContainer/PostPage';
+import insta from './instagram.svg';
 
 class App extends Component {
   constructor(props) {
@@ -10,12 +11,11 @@ class App extends Component {
     this.state = {
       dataList: [],
       searchInput: '',
-      username: 'cjbt',
+      username: localStorage.getItem('username'),
       text: '',
       isTop: true,
       comments: [],
-      firstName: 'cj',
-      lastName: 'tantay',
+      firstName: localStorage.getItem('fullname'),
       profile: null,
       isLiked: [],
       likedCounter: []
@@ -34,7 +34,7 @@ class App extends Component {
         isLiked: isLiked,
         likedCounter: likedCounter
       });
-    }, 0);
+    }, 4000);
 
     document.addEventListener('scroll', this.scrollChange);
   }
@@ -103,26 +103,32 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <PostPage
-          searchInput={this.state.searchInput}
-          searchInputChange={this.searchInputChange}
-          isTop={this.state.isTop}
-          dataList={this.state.dataList}
-          comments={this.state.comments}
-          commentValueChange={this.commentValueChange}
-          text={this.state.text}
-          addNewComment={this.addNewComment}
-          isLiked={this.state.isLiked}
-          heartClick={this.heartClick}
-          likedCounter={this.state.likedCounter}
-          username={this.state.username}
-          firstName={this.state.firstName}
-          lastName={this.state.lastName}
-          profile={this.state.profile}
-        />
+        {this.state.dataList.length === 0 ? (
+          <div className='loading'>
+            <img className='loading-insta' src={insta} alt='' />
+          </div>
+        ) : (
+          <PostPage
+            searchInput={this.state.searchInput}
+            searchInputChange={this.searchInputChange}
+            isTop={this.state.isTop}
+            dataList={this.state.dataList}
+            comments={this.state.comments}
+            commentValueChange={this.commentValueChange}
+            text={this.state.text}
+            addNewComment={this.addNewComment}
+            isLiked={this.state.isLiked}
+            heartClick={this.heartClick}
+            likedCounter={this.state.likedCounter}
+            username={this.state.username}
+            firstName={this.state.firstName}
+            lastName={this.state.lastName}
+            profile={this.state.profile}
+          />
+        )}
       </React.Fragment>
     );
   }
 }
 
-export default App;
+export default Authenticate(App);
