@@ -1,8 +1,8 @@
 .top-container {
   border-bottom: 1px solid #e6e6e6;
   background: white;
-  padding-top: 25px;
-  padding-bottom: 23px;
+  padding-top: 29px;
+  padding-bottom: 12px;
   z-index: 999;
   position: fixed;
   width: 100%;
@@ -17,18 +17,20 @@
     // @include flex(space-between, center, row);
     max-width: 970px;
     margin: 0 auto;
+    height: 35px;
 
     form {
       padding-right: 0;
       .search {
         text-align: center;
-        width: 217px;
+        width: 215px;
         height: 28px;
         border-radius: 3px;
         border: 1px solid #dbdbdb;
         background: #fafafa;
         font-size: 1.4rem;
-        margin-right: 35px;
+        margin-right: 50px;
+        margin-bottom: 15px;
 
         ::placeholder {
           color: #999999;
@@ -39,7 +41,8 @@
     .logo-container {
       display: flex;
       flex-direction: row;
-      align-items: baseline;
+      align-items: center;
+      margin-top: -14px;
 
       .logos {
         .insta-logo {
@@ -50,9 +53,10 @@
 
       .logo-name {
         border-left: 0.02px solid #262626;
+        height: 27px;
         .insta-text {
-          width: 115px;
-          margin-left: 13px;
+          width: 133px;
+          margin-left: 14px;
         }
       }
     }
@@ -62,6 +66,7 @@
       flex-direction: row;
       width: 135px;
       justify-content: space-between;
+      padding-bottom: 11px;
 
       .logo {
         width: 25px;
@@ -80,12 +85,12 @@
 @keyframes top-con {
   0% {
     padding-top: 25px;
-    padding-bottom: 23px;
+    padding-bottom: 11px;
   }
 
   100% {
-    padding-top: 12px;
-    padding-bottom: 8px;
+    padding-top: 16px;
+    padding-bottom: 0px;
   }
 }
 
