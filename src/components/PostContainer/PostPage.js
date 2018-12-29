@@ -22,46 +22,48 @@ const PostPage = props => {
           </div>
         </div>
       </div>
-      <div className='App'>
-        <SearchBar
-          searchInput={props.searchInput}
-          searchInputChange={props.searchInputChange}
-          isTop={props.isTop}
-          isModalClicked={props.isModalClicked}
-          modalClick={props.modalClick}
-        />
-        <div className='bottom-content'>
-          <div className='postouter'>
-            {!props.dataList
-              ? ''
-              : props.dataList.map((post, i) => (
-                  <PostContainer
-                    thumbnail={post.thumbnailUrl}
-                    username={post.username}
-                    img={post.imageUrl}
-                    likes={post.likes}
-                    timestamp={post.timestamp}
-                    key={i}
-                    index={i}
-                    comments={props.comments[i]}
-                    commentValueChange={props.commentValueChange}
-                    text={props.text}
-                    addNewComment={e => props.addNewComment(e, i)}
-                    isLiked={props.isLiked}
-                    heartClick={props.heartClick}
-                    likedCounter={props.likedCounter}
-                    isTop={props.isTop}
-                  />
-                ))}
-          </div>
-
-          <Footer
-            logout={props.logout}
+      <div className='postpage'>
+        <div className='App'>
+          <SearchBar
+            searchInput={props.searchInput}
+            searchInputChange={props.searchInputChange}
             isTop={props.isTop}
-            username={props.username}
-            firstName={props.firstName}
-            lastName={props.lastName}
+            isModalClicked={props.isModalClicked}
+            modalClick={props.modalClick}
           />
+          <div className='bottom-content'>
+            <div className='postouter'>
+              {!props.dataList
+                ? ''
+                : props.dataList.map((post, i) => (
+                    <PostContainer
+                      thumbnail={post.thumbnailUrl}
+                      username={post.username}
+                      img={post.imageUrl}
+                      likes={post.likes}
+                      timestamp={post.timestamp}
+                      key={i}
+                      index={i}
+                      comments={props.comments[i]}
+                      commentValueChange={props.commentValueChange}
+                      text={props.text}
+                      addNewComment={e => props.addNewComment(e, i)}
+                      isLiked={props.isLiked}
+                      heartClick={props.heartClick}
+                      likedCounter={props.likedCounter}
+                      isTop={props.isTop}
+                    />
+                  ))}
+            </div>
+
+            <Footer
+              logout={props.logout}
+              isTop={props.isTop}
+              username={props.username}
+              firstName={props.firstName}
+              lastName={props.lastName}
+            />
+          </div>
         </div>
       </div>
     </React.Fragment>

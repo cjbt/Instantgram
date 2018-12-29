@@ -200,8 +200,17 @@ html {
   }
 }
 
-.App {
+.postpage {
+  border: 1px solid red;
+  // position: relative;
   margin: 0 auto;
+  top: 0;
+  max-width: 935px;
+  .App {
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+  }
 }
 
 .bottom-content {
