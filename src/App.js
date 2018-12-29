@@ -18,7 +18,8 @@ class App extends Component {
       firstName: localStorage.getItem('fullname'),
       profile: null,
       isLiked: [],
-      likedCounter: []
+      likedCounter: [],
+      isModalClicked: false
     };
   }
 
@@ -35,7 +36,7 @@ class App extends Component {
         isLiked: isLiked,
         likedCounter: likedCounter
       });
-    }, 4000);
+    }, 0);
 
     document.addEventListener('scroll', this.scrollChange);
   }
@@ -101,6 +102,21 @@ class App extends Component {
     });
   };
 
+  modalClick = () => {
+    this.setState({
+      isModalClicked: true
+    });
+  };
+
+  modalNoneClick = () => {
+    this.setState(
+      {
+        isModalClicked: false
+      },
+      () => console.log(this.state.isModalClicked)
+    );
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -126,6 +142,9 @@ class App extends Component {
             lastName={this.state.lastName}
             profile={this.state.profile}
             logout={this.props.logout}
+            isModalClicked={this.state.isModalClicked}
+            modalClick={this.modalClick}
+            modalNoneClick={this.modalNoneClick}
           />
         )}
       </React.Fragment>

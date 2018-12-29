@@ -14,7 +14,10 @@ const SearchBar = props => {
           searchInput={props.searchInput}
           searchInputChange={props.searchInputChange}
         />
-        <IconTabs />
+        <IconTabs
+          isModalClicked={props.isModalClicked}
+          modalClick={props.modalClick}
+        />
       </div>
     </div>
   );
@@ -23,7 +26,9 @@ const SearchBar = props => {
 SearchBar.propTypes = {
   searchInput: PropTypes.string,
   searchInputChange: PropTypes.func,
-  isTop: PropTypes.bool
+  isTop: PropTypes.bool,
+  isModalClicked: PropTypes.bool,
+  modalClick: PropTypes.func
 };
 
 export default SearchBar;

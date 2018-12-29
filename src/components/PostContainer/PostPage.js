@@ -7,11 +7,28 @@ import PropTypes from 'prop-types';
 const PostPage = props => {
   return (
     <React.Fragment>
+      <div className={props.isModalClicked ? 'modal' : null}>
+        <div className='modal-menu-container'>
+          <div className='modal-menu'>
+            <form onSubmit={props.logout}>
+              <button className='modal-option logout-p' onClick={props.logout}>
+                <p>Log Out</p>
+              </button>
+            </form>
+
+            <p className='modal-option cancel-p' onClick={props.modalNoneClick}>
+              Cancel
+            </p>
+          </div>
+        </div>
+      </div>
       <div className='App'>
         <SearchBar
           searchInput={props.searchInput}
           searchInputChange={props.searchInputChange}
           isTop={props.isTop}
+          isModalClicked={props.isModalClicked}
+          modalClick={props.modalClick}
         />
         <div className='bottom-content'>
           <div className='postouter'>
@@ -78,7 +95,10 @@ PostPage.propTypes = {
   firstName: PropTypes.string,
   lastName: PropTypes.string,
   profile: PropTypes.string,
-  logout: PropTypes.func
+  logout: PropTypes.func,
+  isModalClicked: PropTypes.bool,
+  modalClick: PropTypes.func,
+  modalNoneClick: PropTypes.func
 };
 
 export default PostPage;

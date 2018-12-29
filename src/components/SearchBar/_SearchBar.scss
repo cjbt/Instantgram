@@ -3,7 +3,7 @@
   background: white;
   padding-top: 29px;
   padding-bottom: 12px;
-  z-index: 999;
+  z-index: 10;
   position: fixed;
   width: 100%;
   top: 0;
@@ -70,6 +70,16 @@
 
       .logo {
         width: 25px;
+      }
+
+      .profile {
+        cursor: pointer;
+      }
+      .likes {
+        opacity: 0.3;
+      }
+      .location {
+        opacity: 0.3;
       }
     }
   }

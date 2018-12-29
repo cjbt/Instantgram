@@ -62,7 +62,7 @@ class Login extends React.Component {
           <input
             type='password'
             name='password'
-            placeholder='Password'
+            placeholder='Fake password'
             id='password'
             value={this.state.pwVal}
             onChange={this.pwChange}
