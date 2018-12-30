@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cj from '../Login/staff/ProfilePhoto.jpg';
 
 const UserProfile = props => {
   return (
@@ -34,8 +35,7 @@ UserProfile.defaultProps = {
   username: 'cjbt',
   firstName: 'cj',
   lastName: 'tantay',
-  profile:
-    'https://tk-assets.lambdaschool.com/1c1b7262-cf23-4a9f-90b6-da0d3c74a5c6_lambdacrest.png'
+  profile: 'https://ca.slack-edge.com/T4JUEB3ME-UD8L25VAT-3b0b9548a520-512'
 };
 
 UserProfile.propTypes = {

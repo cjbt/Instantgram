@@ -21,7 +21,7 @@ const Authenticate = App =>
       }
     }
 
-    logout = e => {
+    logout = () => {
       return this.state.loginVerfied ? localStorage.clear() : null;
     };
     render() {

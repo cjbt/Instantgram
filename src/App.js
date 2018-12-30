@@ -109,12 +109,9 @@ class App extends Component {
   };
 
   modalNoneClick = () => {
-    this.setState(
-      {
-        isModalClicked: false
-      },
-      () => console.log(this.state.isModalClicked)
-    );
+    this.setState({
+      isModalClicked: false
+    });
   };
 
   render() {
