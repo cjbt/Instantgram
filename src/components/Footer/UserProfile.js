@@ -66,52 +66,33 @@ src='https://ca.slack-edge.com/T4JUEB3ME-U4KHSNE3D-fd940398bb80-512'
                       clicked={this.state.clicked}
                     />
                   
-              <Image
-                      src='https://ca.slack-edge.com/T4JUEB3ME-U8QE15GJJ-ge23210c2ee8-512'
-                      onClick={this.displayClick}
-                      alt=''
-                      clicked={this.state.clicked}
-                    />
-                 
-               <Image
-                      src='https://ca.slack-edge.com/T4JUEB3ME-UC043SA0G-2e65e76a0500-512'
-                      onClick={this.displayClick}
-                      alt=''
-                      clicked={this.state.clicked}
-                    />
-                
+             
 
-                  <BotImage >
-
-              <Image
-                      src='https://ca.slack-edge.com/T4JUEB3ME-U5SF97A1Z-a2ca5f5dbe53-512'
-                      onClick={this.displayClick}
-                      alt=''
-                      clicked={this.state.clicked}
-                    />
-                 
-
-                   <Image
-                      src='https://ca.slack-edge.com/T4JUEB3ME-U7LV36C66-84460946c45e-512'
-                      onClick={this.displayClick}
-                      alt=''
-                      clicked={this.state.clicked}
-                    />
-               
-                <Image
-                      src='https://tk-assets.lambdaschool.com/1c1b7262-cf23-4a9f-90b6-da0d3c74a5c6_lambdacrest.png'
-                      onClick={this.displayClick}
-                      alt=''
-                      clicked={this.state.clicked}
-                    />
-                    </BotImage>
-           
+ <BotImage />
+                  <Image
+                    src='https://ca.slack-edge.com/T4JUEB3ME-U5SF97A1Z-a2ca5f5dbe53-512'
+                    onClick={this.displayClick}
+                    alt=''
+                    clicked={this.state.clicked}
+                  />
+                  <Image
+                    src='https://ca.slack-edge.com/T4JUEB3ME-U7LV36C66-84460946c45e-512'
+                    onClick={this.displayClick}
+                    alt=''
+                  />
+                  <Image
+                    src='https://tk-assets.lambdaschool.com/1c1b7262-cf23-4a9f-90b6-da0d3c74a5c6_lambdacrest.png'
+                    onClick={this.displayClick}
+                    alt=''
+                    clicked={this.state.clicked}
+                  />
                 </DisplayImages>
                 <OrBottom>OR DEFAULT</OrBottom>
                 <BottomRow>
                   <Image
                     src='https://ca.slack-edge.com/T4JUEB3ME-UD8L25VAT-3b0b9548a520-512'
-
-
-
+                    onClick={this.displayClick}
+                    alt=''
+                    clicked={this.state.clicked}
+                  />
 */

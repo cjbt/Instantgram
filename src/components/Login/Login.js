@@ -67,13 +67,12 @@ const DisplayImages = styled.div`
 `;
 
 const TopImage = styled.div``;
-const BotImage = styled.div``;
 const Image = styled.img`
   border-radius: 50%;
   width: 72px;
   border: ${props =>
-    props.clicked ? '2px solid #3F97F0' : '1px solid #efefef'};
-  opacity: ${props => (props.clicked ? 1 : 0.5)};
+    props.banana ? '2px solid #3F97F0' : '1px solid #efefef'};
+  opacity: ${props => (props.banana ? 1 : 0.5)};
   cursor: pointer;
 
   &:hover {
@@ -137,36 +136,66 @@ class Login extends React.Component {
     pwVal: '',
     displayImg:
       'https://ca.slack-edge.com/T4JUEB3ME-UD8L25VAT-3b0b9548a520-512',
-    clicked: false
+    clicked: [
+      {
+        name: 'austen',
+        isClicked: false,
+        url: 'https://ca.slack-edge.com/T4JUEB3ME-U8QE15GJJ-ge23210c2ee8-512'
+      },
+      {
+        name: 'josh',
+        isClicked: false,
+        url: 'https://ca.slack-edge.com/T4JUEB3ME-UC043SA0G-2e65e76a0500-512'
+      },
+      {
+        name: 'dustin',
+        isClicked: false,
+        url: 'https://ca.slack-edge.com/T4JUEB3ME-U5SF97A1Z-a2ca5f5dbe53-512'
+      },
+      {
+        name: 'ryan',
+        isClicked: false,
+        url: 'https://ca.slack-edge.com/T4JUEB3ME-U5SF97A1Z-a2ca5f5dbe53-512'
+      },
+      {
+        name: 'karen',
+        isClicked: false,
+        url: 'https://ca.slack-edge.com/T4JUEB3ME-U7LV36C66-84460946c45e-512'
+      },
+      {
+        name: 'lamnda',
+        isClicked: false,
+        url:
+          'https://tk-assets.lambdaschool.com/1c1b7262-cf23-4a9f-90b6-da0d3c74a5c6_lambdacrest.png'
+      }
+    ]
   };
-
   // componentDidMount() {
   //   localStorage.clear();
   // }
 
-  changeHandler = e => {
-    if (this.state.displayImg !== e.target.src) {
-      this.setState({});
-    }
-  };
-
-  clickHandler = e => {
-    if (this.state.displayImg === e.target.src) {
-      this.setState(prevState => ({ clicked: !prevState.clicked }));
-    }
-
-    this.changeHandler(e);
-  };
-
-  displayClick = e => {
-    this.setState(
-      {
-        displayImg: e.target.src
-      },
-      () => console.log(this.state.displayImg)
+  displayClick = (e, i) => {
+    let clickArr = [...this.state.clicked];
+    let item = { ...clickArr[i] };
+    const selected = clickArr.filter(itemParam => itemParam === true);
+    const notClickCheck = selected.map(
+      notclick => (notclick.isClicked = false)
     );
+    
+    item.isClicked = !item.isClicked;
+    clickArr[i] = item;
 
-    this.clickHandler(e);
+    const clickHolder = [];
+
+    this.state.clicked.map(click => clickHolder.push(click.isClicked));
+    clickHolder[i] = !clickHolder[i];
+    if (clickHolder[i]) {
+      this.setState({
+        displayImg: this.state.clicked[i].url,
+        clicked: clickArr
+      });
+    }
+    // console.log(this.state.clicked);
   };
 
   usernameChange = e => {
@@ -235,51 +264,30 @@ class Login extends React.Component {
                 <Or>DISPLAY PICTURE</Or>
                 <DisplayImages>
                   <TopImage />
-                  <Image
-                    src='https://ca.slack-edge.com/T4JUEB3ME-U4KHSNE3D-fd940398bb80-512'
-                    onClick={this.displayClick}
-                    alt=''
-                    clicked={this.state.clicked}
-                  />
-                  <Image
-                    src='https://ca.slack-edge.com/T4JUEB3ME-U8QE15GJJ-ge23210c2ee8-512'
-                    onClick={this.displayClick}
-                    alt=''
-                    clicked={this.state.clicked}
-                  />
-                  <Image
-                    src='https://ca.slack-edge.com/T4JUEB3ME-UC043SA0G-2e65e76a0500-512'
-                    onClick={this.displayClick}
-                    alt=''
-                    clicked={this.state.clicked}
-                  />
-                  <BotImage />
-                  <Image
-                    src='https://ca.slack-edge.com/T4JUEB3ME-U5SF97A1Z-a2ca5f5dbe53-512'
-                    onClick={this.displayClick}
-                    alt=''
-                    clicked={this.state.clicked}
-                  />
-                  <Image
-                    src='https://ca.slack-edge.com/T4JUEB3ME-U7LV36C66-84460946c45e-512'
-                    onClick={this.displayClick}
-                    alt=''
-                  />
-                  <Image
-                    src='https://tk-assets.lambdaschool.com/1c1b7262-cf23-4a9f-90b6-da0d3c74a5c6_lambdacrest.png'
-                    onClick={this.displayClick}
-                    alt=''
-                    clicked={this.state.clicked}
-                  />
+                  {this.state.clicked.length === 0
+                    ? null
+                    : this.state.clicked.map((img, i) => {
+                        return (
+                          <Image
+                            src={img.url}
+                            onClick={e => this.displayClick(e, i)}
+                            banana={img.isClicked}
+                            key={i}
+                          />
+                        );
+                      })}
                 </DisplayImages>
                 <OrBottom>OR DEFAULT</OrBottom>
                 <BottomRow>
-                  <Image
-                    src='https://ca.slack-edge.com/T4JUEB3ME-UD8L25VAT-3b0b9548a520-512'
-                    onClick={this.displayClick}
-                    alt=''
-                    clicked={this.state.clicked}
-                  />
+                  {this.state.displayImg ===
+                  'https://ca.slack-edge.com/T4JUEB3ME-UD8L25VAT-3b0b9548a520-512' ? (
+                    <Image
+                      clicked
+                      src='https://ca.slack-edge.com/T4JUEB3ME-UD8L25VAT-3b0b9548a520-512'
+                    />
+                  ) : (
+                    <Image src='https://ca.slack-edge.com/T4JUEB3ME-UD8L25VAT-3b0b9548a520-512' />
+                  )}
                 </BottomRow>
                 {this.state.usernameVal.length > 0 ? (
                   <Button typed>Log in</Button>

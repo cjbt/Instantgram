@@ -1,0 +1,19 @@
+/* props.clicked ? '2px solid #3F97F0' : '1px solid #efefef'};
+  opacity: ${props => (props.clicked ? 1 : 0.5)}; */
+
+.clicked {
+  border: 2px solid #3f97f0;
+  opacity: 1;
+}
+
+.image {
+  border-radius: 50%;
+  width: 72px;
+  border: 1px solid #efefef;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.image:hover {
+  opacity: 1;
+}
