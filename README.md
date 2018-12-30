@@ -1,4 +1,4 @@
-## InstantGram
+## Instantgram
 
 Instagram clone using React and SaSS CSS
 
