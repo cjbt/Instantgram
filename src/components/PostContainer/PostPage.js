@@ -62,6 +62,7 @@ const PostPage = props => {
               username={props.username}
               firstName={props.firstName}
               lastName={props.lastName}
+              profile={props.profile}
             />
           </div>
         </div>

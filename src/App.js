@@ -16,7 +16,7 @@ class App extends Component {
       isTop: true,
       comments: [],
       firstName: localStorage.getItem('fullname'),
-      profile: null,
+      profile: localStorage.getItem('display'),
       isLiked: [],
       likedCounter: [],
       isModalClicked: false
