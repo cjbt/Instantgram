@@ -10,11 +10,7 @@ const UserProfile = props => {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <img
-            className='profile-pic'
-            src={localStorage.getItem('display')}
-            alt=''
-          />
+          <img className='profile-pic' src={props.profile} alt='' />
         </a>
       </div>
 
@@ -34,12 +30,12 @@ const UserProfile = props => {
   );
 };
 
-// UserProfile.defaultProps = {
-//   username: 'cjbt',
-//   firstName: 'cj',
-//   lastName: 'tantay',
-//   profile: 'https://ca.slack-edge.com/T4JUEB3ME-UD8L25VAT-3b0b9548a520-512'
-// };
+UserProfile.defaultProps = {
+  username: 'cjbt',
+  firstName: 'cj',
+  lastName: 'tantay',
+  profile: 'https://ca.slack-edge.com/T4JUEB3ME-UD8L25VAT-3b0b9548a520-512'
+};
 
 UserProfile.propTypes = {
   username: PropTypes.string,

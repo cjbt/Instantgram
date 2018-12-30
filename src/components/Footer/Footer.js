@@ -14,6 +14,7 @@ const Footer = props => {
           username={props.username}
           firstName={props.firstName}
           lastName={props.lastName}
+          profile={props.profile}
         />
         <Stories logout={props.logout} />
         <Suggestions />
