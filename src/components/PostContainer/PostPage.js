@@ -74,21 +74,23 @@ PostPage.propTypes = {
   searchInput: PropTypes.string,
   searchInputChange: PropTypes.func,
   isTop: PropTypes.bool,
-  dataList: PropTypes.shape({
-    username: PropTypes.string,
-    thumbnailUrl: PropTypes.string,
-    likes: PropTypes.number,
-    timestamp: PropTypes.string,
-    comments: PropTypes.arrayOf(
-      PropTypes.shape({
-        username: PropTypes.string,
-        text: PropTypes.string
-      })
-    )
-  }),
+  dataList: PropTypes.arrayOf(
+    PropTypes.shape({
+      username: PropTypes.string,
+      thumbnailUrl: PropTypes.string,
+      likes: PropTypes.number,
+      timestamp: PropTypes.string,
+      comments: PropTypes.arrayOf(
+        PropTypes.shape({
+          username: PropTypes.string,
+          text: PropTypes.string
+        })
+      )
+    })
+  ),
   comments: PropTypes.array,
   commentValueChange: PropTypes.func,
-  text: PropTypes.text,
+  text: PropTypes.string,
   addNewComment: PropTypes.func,
   isLiked: PropTypes.array,
   heartClick: PropTypes.func,

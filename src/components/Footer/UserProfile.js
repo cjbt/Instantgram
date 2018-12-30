@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cj from '../Login/staff/ProfilePhoto.jpg';
 
 const UserProfile = props => {
   return (

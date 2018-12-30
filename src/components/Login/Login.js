@@ -1,12 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Instagram from './instatext.png';
-import austen from './staff/austen.png';
-import dustin from './staff/dustinM.jpeg';
-import josh from './staff/joshknell.jpeg';
-import karen from './staff/karen.jpeg';
-import ryan from './staff/ryanhamblin.jpeg';
-import cj from './staff/ProfilePhoto.jpg';
 
 // 3F97F0
 const Loginpage = styled.div`
@@ -143,12 +137,22 @@ class Login extends React.Component {
   state = {
     usernameVal: '',
     fullnameVal: '',
-    pwVal: ''
+    pwVal: '',
+    displayImg: 'https://ca.slack-edge.com/T4JUEB3ME-UD8L25VAT-3b0b9548a520-512'
   };
 
   // componentDidMount() {
   //   localStorage.clear();
   // }
+
+  displayClick = e => {
+    this.setState(
+      {
+        displayImg: e.target.src
+      },
+      () => console.log(this.state.displayImg)
+    );
+  };
 
   usernameChange = e => {
     this.setState({
@@ -179,6 +183,7 @@ class Login extends React.Component {
   };
 
   render() {
+    console.log(this.state.displayImg);
     return (
       <Loginpage>
         <Container>
@@ -215,20 +220,45 @@ class Login extends React.Component {
                 <Or>DISPLAY PICTURE</Or>
                 <DisplayImages>
                   <TopImage />
-                  <Image src={austen} alt='' />
-                  <Image src={josh} alt='' />
-                  <Image src={dustin} alt='' />
+                  <Image
+                    src='https://ca.slack-edge.com/T4JUEB3ME-U4KHSNE3D-fd940398bb80-512'
+                    onClick={this.displayClick}
+                    alt=''
+                  />
+                  <Image
+                    src='https://ca.slack-edge.com/T4JUEB3ME-U8QE15GJJ-ge23210c2ee8-512'
+                    onClick={this.displayClick}
+                    alt=''
+                  />
+                  <Image
+                    src='https://ca.slack-edge.com/T4JUEB3ME-UC043SA0G-2e65e76a0500-512'
+                    onClick={this.displayClick}
+                    alt=''
+                  />
                   <BotImage />
-                  <Image src={ryan} alt='' />
-                  <Image src={karen} alt='' />
+                  <Image
+                    src='https://ca.slack-edge.com/T4JUEB3ME-U5SF97A1Z-a2ca5f5dbe53-512'
+                    onClick={this.displayClick}
+                    alt=''
+                  />
+                  <Image
+                    src='https://ca.slack-edge.com/T4JUEB3ME-U7LV36C66-84460946c45e-512'
+                    onClick={this.displayClick}
+                    alt=''
+                  />
                   <Image
                     src='https://tk-assets.lambdaschool.com/1c1b7262-cf23-4a9f-90b6-da0d3c74a5c6_lambdacrest.png'
+                    onClick={this.displayClick}
                     alt=''
                   />
                 </DisplayImages>
                 <OrBottom>OR DEFAULT</OrBottom>
                 <BottomRow>
-                  <Image src={cj} alt='' />
+                  <Image
+                    src='https://ca.slack-edge.com/T4JUEB3ME-UD8L25VAT-3b0b9548a520-512'
+                    onClick={this.displayClick}
+                    alt=''
+                  />
                 </BottomRow>
                 {this.state.usernameVal.length > 0 ? (
                   <Button typed>Log in</Button>
