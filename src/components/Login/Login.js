@@ -75,9 +75,7 @@ const Image = styled.img`
   opacity: ${props => (props.banana ? 1 : 0.5)};
   cursor: pointer;
 
-  &:hover {
-    opacity: 1;
-  }
+
 `;
 
 const BottomRow = styled.div`
@@ -225,6 +223,7 @@ class Login extends React.Component {
   };
 
   render() {
+    console.log(this.state.displayImg)
     return (
       <Loginpage>
         <Container>
