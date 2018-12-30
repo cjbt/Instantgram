@@ -177,11 +177,8 @@ class Login extends React.Component {
   displayClick = (e, i) => {
     let clickArr = [...this.state.clicked];
     let item = { ...clickArr[i] };
-    const selected = clickArr.filter(itemParam => itemParam === true);
-    const notClickCheck = selected.map(
-      notclick => (notclick.isClicked = false)
-    );
-    
+    const notClicked = clickArr.filter(()=> true);
+    notClicked.map(notclick => (notclick.isClicked = false));
     item.isClicked = !item.isClicked;
     clickArr[i] = item;
 
