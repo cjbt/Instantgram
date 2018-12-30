@@ -32,8 +32,7 @@ const UserProfile = props => {
 
 UserProfile.defaultProps = {
   username: 'cjbt',
-  firstName: 'cj',
-  lastName: 'tantay',
+  firstName: 'cj tantay',
   profile: 'https://ca.slack-edge.com/T4JUEB3ME-UD8L25VAT-3b0b9548a520-512'
 };
 
