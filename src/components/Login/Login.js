@@ -74,8 +74,6 @@ const Image = styled.img`
     props.banana ? '2px solid #3F97F0' : '1px solid #efefef'};
   opacity: ${props => (props.banana ? 1 : 0.5)};
   cursor: pointer;
-
-
 `;
 
 const BottomRow = styled.div`
@@ -138,17 +136,17 @@ class Login extends React.Component {
       {
         name: 'austen',
         isClicked: false,
-        url: 'https://ca.slack-edge.com/T4JUEB3ME-U8QE15GJJ-ge23210c2ee8-512'
+        url: 'https://ca.slack-edge.com/T4JUEB3ME-U4KHSNE3D-fd940398bb80-512'
       },
       {
         name: 'josh',
         isClicked: false,
-        url: 'https://ca.slack-edge.com/T4JUEB3ME-UC043SA0G-2e65e76a0500-512'
+        url: 'https://ca.slack-edge.com/T4JUEB3ME-U8QE15GJJ-ge23210c2ee8-512'
       },
       {
         name: 'dustin',
         isClicked: false,
-        url: 'https://ca.slack-edge.com/T4JUEB3ME-U5SF97A1Z-a2ca5f5dbe53-512'
+        url: 'https://ca.slack-edge.com/T4JUEB3ME-UC043SA0G-2e65e76a0500-512'
       },
       {
         name: 'ryan',
@@ -175,7 +173,7 @@ class Login extends React.Component {
   displayClick = (e, i) => {
     let clickArr = [...this.state.clicked];
     let item = { ...clickArr[i] };
-    const notClicked = clickArr.filter(()=> true);
+    const notClicked = clickArr.filter(() => true);
     notClicked.map(notclick => (notclick.isClicked = false));
     item.isClicked = !item.isClicked;
     clickArr[i] = item;
@@ -223,7 +221,7 @@ class Login extends React.Component {
   };
 
   render() {
-    console.log(this.state.displayImg)
+    console.log(this.state.displayImg);
     return (
       <Loginpage>
         <Container>
