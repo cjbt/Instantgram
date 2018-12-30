@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import '../style/App.scss';
+import Instagram from './instatext.png';
 
+const Loginpage = styled.div`
+  background-color: #fafafa;
+`;
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -12,24 +15,45 @@ const Container = styled.div`
 const TopContainer = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   margin-top: 12px;
   justify-content: center;
+  background: white;
+  border: 1px solid #e6e6e6;
 `;
 
-const Form = styled.div`
+const InstagramImg = styled.img`
+  padding-top: 31px;
+  width: 67%;
+  margin-left: 60px;
+`;
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 269px;
+  width: 100%;
+  margin: 0 auto;
+`;
+
+const Form = styled.form`
+  padding-top: 0;
   display: flex;
   justify-content: center;
-  flex-flow: wrap column;
-  border: 1px solid blue;
-  width: 200px;
+  flex-direction: column;
+  /* max-width: 300px; */
+  width: 100%;
 `;
 const Input = styled.input`
-  width: 200px;
+  /* width: 200px; */
+  display: flex;
+  justify-content: center;
+  border-radius: 3px;
+  border: 1px solid #efefef;
 `;
 const Button = styled.button`
-  width: 200px;
+  width: 268px;
 `;
 
 const MidContainer = styled.div``;
@@ -76,40 +100,45 @@ class Login extends React.Component {
 
   render() {
     return (
-      <Container>
-        <TopContainer>
-          <Form onSubmit={this.loginSubmit}>
-            <Input
-              type='text'
-              name='username'
-              placeholder='Username'
-              onChange={this.usernameChange}
-              value={this.state.usernameVal}
-              required
-            />
-            <Input
-              type='text'
-              name='fullname'
-              placeholder='Full name'
-              onChange={this.fullNameChange}
-              value={this.state.fullnameVal}
-              required
-            />
-            <Input
-              type='password'
-              name='password'
-              placeholder='Fake password'
-              id='password'
-              value={this.state.pwVal}
-              onChange={this.pwChange}
-              required
-            />
-            <Button type='submit'>login</Button>
-          </Form>
-        </TopContainer>
-        <MidContainer />
-        <Footer />
-      </Container>
+      <Loginpage>
+        <Container>
+          <TopContainer>
+            <InstagramImg src={Instagram} alt='' />
+            <FormContainer>
+              <Form onSubmit={this.loginSubmit}>
+                <Input
+                  type='text'
+                  name='username'
+                  placeholder='Username'
+                  onChange={this.usernameChange}
+                  value={this.state.usernameVal}
+                  required
+                />
+                <Input
+                  type='text'
+                  name='fullname'
+                  placeholder='Full name'
+                  onChange={this.fullNameChange}
+                  value={this.state.fullnameVal}
+                  required
+                />
+                <Input
+                  type='password'
+                  name='password'
+                  placeholder='Fake password'
+                  id='password'
+                  value={this.state.pwVal}
+                  onChange={this.pwChange}
+                  required
+                />
+                <Button type='submit'>login</Button>
+              </Form>
+            </FormContainer>
+          </TopContainer>
+          <MidContainer />
+          <Footer />
+        </Container>
+      </Loginpage>
     );
   }
 }
