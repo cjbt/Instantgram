@@ -51,7 +51,12 @@ class App extends Component {
   };
 
   searchInputChange = e => {
+    const newData = dummyData.map(item =>
+      item.username.split('').filter(item => item.username === e.target.value)
+    );
+
     this.setState({
+      dataList: newData,
       searchInput: e.target.value
     });
   };
