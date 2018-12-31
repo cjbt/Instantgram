@@ -22,7 +22,7 @@ const TopContainer = styled.div`
   justify-content: center;
   background: white;
   border: 1px solid #e6e6e6;
-  padding-bottom: 53px;
+  padding-bottom: 30px;
 `;
 
 const InstagramImg = styled.img`
@@ -84,7 +84,7 @@ const BottomRow = styled.div`
 const Button = styled.button`
   cursor: pointer;
 
-  margin-top: 25px;
+  margin-top: 20px;
   width: 268px;
   padding: 6px 0;
   border-radius: 5px;
@@ -181,17 +181,35 @@ class Login extends React.Component {
   };
 
   displayClick = (e, i) => {
+    // part 1: select clicked image
+
+    // make a copy of the clicked state which is an array of object or JSON
     let clickArr = [...this.state.clicked];
+
+    // target the selected array based on index based on what was selected... i know cyclical
     let item = { ...clickArr[i] };
+
+    // filter out everything that is false, only select or display the items that are true
     const notClicked = clickArr.filter(() => true);
+
+    // iterate over all filtered copy of the clicked state and
     notClicked.map(notclick => (notclick.isClicked = false));
+
     item.isClicked = !item.isClicked;
     clickArr[i] = item;
 
+    // part 2: set displayImg state to the url of the selected image
+
     const clickHolder = [];
 
+    // iterate through array, each item's isClicked (boolean) property gets pushed to clickHolder
+
     this.state.clicked.map(click => clickHolder.push(click.isClicked));
+
+    // when user clicks, it will reasign in it's index the opposite boolean of the same index
     clickHolder[i] = !clickHolder[i];
+
+    // as user clicks on img, if the selected's boolean is true, set the displayImg state to the url of the selected
     if (clickHolder[i]) {
       this.setState({
         displayImg: this.state.clicked[i].url,
