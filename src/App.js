@@ -36,7 +36,7 @@ class App extends Component {
         isLiked: isLiked,
         likedCounter: likedCounter
       });
-    }, 0);
+    }, 3000);
 
     document.addEventListener('scroll', this.scrollChange);
   }
