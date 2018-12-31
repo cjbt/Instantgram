@@ -18,7 +18,7 @@
     }
   }
 
-  @media (max-width: 740) {
+  @media (max-width: 740px) {
     height: 150vh;
   }
 
@@ -26,7 +26,7 @@
     width: 400px;
     background: white;
     border-radius: 15px;
-    @media (max-width: 740) {
+    @media (max-width: 740px) {
       margin-top: -490px;
     }
 
