@@ -39,8 +39,8 @@
         border-top-left-radius: 15px;
         border-bottom: none;
         cursor: pointer;
-        padding-right: 170px;
-        padding-left: 170px;
+        padding-left: 164.2px;
+        padding-right: 164.2px;
 
         &:hover {
           color: red;
@@ -49,6 +49,10 @@
         &:active {
           border-top-right-radius: 15px;
           border-top-left-radius: 15px;
+        }
+
+        p {
+          width: 70px;
         }
       }
 

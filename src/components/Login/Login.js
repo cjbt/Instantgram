@@ -71,8 +71,8 @@ const Image = styled.img`
   border-radius: 50%;
   width: 72px;
   border: ${props =>
-    props.banana ? '2px solid #3F97F0' : '1px solid #efefef'};
-  opacity: ${props => (props.banana ? 1 : 0.5)};
+    props.isClicked ? '2px solid #3F97F0' : '1px solid #efefef'};
+  opacity: ${props => (props.isClicked ? 1 : 0.5)};
   cursor: pointer;
 `;
 
@@ -170,6 +170,16 @@ class Login extends React.Component {
   //   localStorage.clear();
   // }
 
+  botImageClicked = () => {
+    this.setState(
+      {
+        displayImg:
+          'https://ca.slack-edge.com/T4JUEB3ME-UD8L25VAT-3b0b9548a520-512'
+      },
+      () => console.log(this.state.displayImg)
+    );
+  };
+
   displayClick = (e, i) => {
     let clickArr = [...this.state.clicked];
     let item = { ...clickArr[i] };
@@ -221,7 +231,6 @@ class Login extends React.Component {
   };
 
   render() {
-    console.log(this.state.displayImg);
     return (
       <Loginpage>
         <Container>
@@ -265,7 +274,7 @@ class Login extends React.Component {
                           <Image
                             src={img.url}
                             onClick={e => this.displayClick(e, i)}
-                            banana={img.isClicked}
+                            isClicked={img.isClicked}
                             key={i}
                           />
                         );
@@ -276,11 +285,15 @@ class Login extends React.Component {
                   {this.state.displayImg ===
                   'https://ca.slack-edge.com/T4JUEB3ME-UD8L25VAT-3b0b9548a520-512' ? (
                     <Image
-                      clicked
                       src='https://ca.slack-edge.com/T4JUEB3ME-UD8L25VAT-3b0b9548a520-512'
+                      isClicked
+                      onClick={this.botImageClicked}
                     />
                   ) : (
-                    <Image src='https://ca.slack-edge.com/T4JUEB3ME-UD8L25VAT-3b0b9548a520-512' />
+                    <Image
+                      src='https://ca.slack-edge.com/T4JUEB3ME-UD8L25VAT-3b0b9548a520-512'
+                      onClick={this.botImageClicked}
+                    />
                   )}
                 </BottomRow>
                 {this.state.usernameVal.length > 0 ? (
