@@ -1,13 +1,26 @@
 .top-container {
   border-bottom: 1px solid #e6e6e6;
   background: white;
-  padding-top: 29px;
-  padding-bottom: 12px;
+  // padding-top: 29px;
+  // padding-bottom: 12px;
   z-index: 10;
   position: fixed;
   width: 100%;
   top: 0;
   right: 0;
+  animation: top-con-scroll 0.5s forwards;
+
+  @keyframes top-con-scroll {
+    0% {
+      padding-top: 16px;
+      padding-bottom: 0px;
+    }
+
+    100% {
+      padding-top: 25px;
+      padding-bottom: 11px;
+    }
+  }
 
   .search-bar-container {
     display: flex;
@@ -77,11 +90,21 @@
       .logo-name {
         border-left: 0.02px solid #262626;
         height: 27px;
+        // animation: insta-name-scroll 0.3s 1
         .insta-text {
           width: 133px;
           margin-left: 14px;
         }
       }
+
+      // @keyframes insta-name-scroll {
+      //   0% {
+      //     opacity: 0;
+      //   }
+      //   100% {
+      //     opacity: 1;
+      //   }
+      // }
     }
 
     .icon-container {
