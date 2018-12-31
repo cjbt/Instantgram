@@ -28,6 +28,7 @@
     border-radius: 15px;
     @media (max-width: 740px) {
       margin-top: -490px;
+      width: 250px;
     }
 
     .modal-menu {
@@ -48,6 +49,10 @@
         cursor: pointer;
         padding-left: 164.2px;
         padding-right: 164.2px;
+
+        @media (max-width: 740px) {
+          padding: 8px 89px;
+        }
 
         &:hover {
           color: red;
