@@ -18,10 +18,17 @@
     }
   }
 
+  @media (max-width: 740) {
+    height: 150vh;
+  }
+
   .modal-menu-container {
     width: 400px;
     background: white;
     border-radius: 15px;
+    @media (max-width: 740) {
+      margin-top: -490px;
+    }
 
     .modal-menu {
       text-align: center;
@@ -76,6 +83,33 @@
   background: white;
   margin-bottom: 60px;
   width: 100%;
+
+  @media (max-width: 999px) {
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 69px;
+    margin-top: -54px;
+  }
+
+  @media (max-width: 740px) {
+    margin-bottom: 74px;
+    width: 100%;
+  }
+
+  @media (max-width: 640px) {
+    margin-bottom: 112px;
+    border: none;
+    margin-top: -112px;
+    width: 100%;
+  }
+
+  @media (max-width: 620px) {
+    width: 100%;
+  }
+
+  @media (max-width: 350px) {
+    width: 100%;
+  }
 
   .user-content {
     display: flex;
@@ -142,4 +176,20 @@
 
 .width614 {
   width: 614px;
+
+  @media (max-width: 999px) {
+    width: 100%;
+  }
+
+  @media (max-width: 740px) {
+    width: 100%;
+  }
+
+  @media (max-width: 640px) {
+    width: 100%;
+  }
+
+  @media (max-width: 620px) {
+    width: 100%;
+  }
 }

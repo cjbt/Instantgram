@@ -18,8 +18,31 @@
     max-width: 970px;
     margin: 0 auto;
     height: 35px;
+    width: 100%;
+
+    @media (max-width: 999px) {
+      width: 100%;
+    }
+
+    @media (max-width: 740px) {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    @media (max-width: 620px) {
+      width: 100%;
+    }
+
+    @media (max-width: 350px) {
+      width: 100%;
+    }
 
     form {
+      @media (max-width: 650px) {
+        display: none;
+      }
+
       padding-right: 0;
       .search {
         text-align: center;

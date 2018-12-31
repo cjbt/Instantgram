@@ -209,6 +209,18 @@ html {
     margin: 0 auto;
     position: absolute;
     top: 0;
+
+    @media (max-width: 999px) {
+      position: relative;
+    }
+
+    @media (max-width: 620px) {
+      width: 100%;
+    }
+
+    @media (max-width: 350px) {
+      width: 100%;
+    }
   }
 }
 
@@ -220,6 +232,31 @@ html {
   flex-direction: row;
   justify-content: space-between;
   z-index: 1;
+
+  @media (max-width: 999px) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  @media (max-width: 740px) {
+    width: 100%;
+  }
+
+  @media (max-width: 640px) {
+    margin-bottom: 112px;
+    border: none;
+    margin-top: -112px;
+    width: 100%;
+  }
+
+  @media (max-width: 620px) {
+    width: 100%;
+  }
+
+  @media (max-width: 350px) {
+    width: 100%;
+  }
 }
 
 .none {
