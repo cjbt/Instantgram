@@ -52,6 +52,7 @@ const PostPage = props => {
                       heartClick={props.heartClick}
                       likedCounter={props.likedCounter}
                       isTop={props.isTop}
+                      heartDoubleClick={props.heartDoubleClick}
                     />
                   ))}
             </div>
@@ -103,7 +104,8 @@ PostPage.propTypes = {
   logout: PropTypes.func,
   isModalClicked: PropTypes.bool,
   modalClick: PropTypes.func,
-  modalNoneClick: PropTypes.func
+  modalNoneClick: PropTypes.func,
+  heartDoubleClick: PropTypes.func
 };
 
 export default PostPage;

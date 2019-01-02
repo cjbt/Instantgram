@@ -8,7 +8,12 @@ import redheart from './heart-red.svg';
 const MiddleContentImg = props => {
   return (
     <div className='middle-content'>
-      <img src={props.img} alt='' />
+      <img
+        onDoubleClick={props.heartDoubleClick}
+        src={props.img}
+        alt=''
+        name={props.index}
+      />
       <div className='post-icons'>
         <div className='icon-left'>
           <img

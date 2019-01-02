@@ -78,22 +78,6 @@ class App extends Component {
     });
   }; // commentSubmit()
 
-  heartDoubleClick = e => {
-    const indexClicked = parseInt(e.target.name);
-    const isLiked = this.state.isLiked.map((like, i) => {
-      if (i === indexClicked) {
-        return like ? false : true;
-      } else {
-        return like;
-      }
-    });
-    this.setState({
-      isLiked: isLiked
-    });
-
-    this.likedCounterChange(indexClicked);
-  };
-
   heartClick = e => {
     const indexClicked = parseInt(e.target.name);
     const isLiked = this.state.isLiked.map((like, i) => {
@@ -163,7 +147,6 @@ class App extends Component {
             isModalClicked={this.state.isModalClicked}
             modalClick={this.modalClick}
             modalNoneClick={this.modalNoneClick}
-            heartDoubleClick={this.heartDoubleClick}
           />
         )}
       </React.Fragment>

@@ -16,6 +16,7 @@ const PostContainer = props => {
         heartClick={props.heartClick}
         index={props.index}
         likedCounter={props.likedCounter}
+        heartDoubleClick={props.heartDoubleClick}
       />
       <CommentSection
         comments={props.comments}
@@ -46,7 +47,8 @@ PostContainer.propTypes = {
   heartClick: PropTypes.func,
   likedCounter: PropTypes.array,
   likedCounterChange: PropTypes.func,
-  isTop: PropTypes.bool
+  isTop: PropTypes.bool,
+  heartDoubleClick: PropTypes.func
 };
 
 export default PostContainer;
