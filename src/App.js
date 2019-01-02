@@ -29,7 +29,7 @@ class App extends Component {
     const isLiked = dummyData.map(data => false);
     const likedCounter = dummyData.map(data => data.likes);
 
-    setTimeout(() => {
+    this.timerHandle = setTimeout(() => {
       this.setState({
         dataList: dummyData,
         comments: commentArr,
@@ -39,6 +39,14 @@ class App extends Component {
     }, 3000);
 
     document.addEventListener('scroll', this.scrollChange);
+  }
+
+  componentWillUnmount() {
+    // clearTimeout(this.time);
+    if (this.timerHandle) {
+      clearTimeout(this.timerHandle);
+      this.timerHandle = 0;
+    }
   }
 
   scrollChange = () => {
